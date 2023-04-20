@@ -1,0 +1,2 @@
+# hcc
+Hamming Code Calculator
