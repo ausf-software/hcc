@@ -105,7 +105,7 @@ class Hamming {
 		for(var i = 0; i < this.d_classes.length; i++) {
 			st += "2^" + i + " * " + ((this.bits[this.h_codes_pos[i] - 1] + this.h_real[i]) % 2);
 			if (i != this.d_classes.length - 1) {
-				st += " * ";
+				st += " + ";
 			}
 		}
 		st += " = " + this.error_pos;
