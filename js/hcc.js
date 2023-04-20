@@ -9,6 +9,7 @@ document.getElementById("function-submit").onclick = function(){
 		var ham = new Hamming(Array.from(input.value).map(Number));
 		
 		var theDivText = document.getElementById("text_answer_div");
+		theDivText.innerHTML += ham.toHtmlString();
 	} else {
 		alert("Invalid text");
 	}

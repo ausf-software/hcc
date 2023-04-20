@@ -16,7 +16,6 @@ class Hamming {
 		this.h_real = [];
 		this.calculateHReal();
 		this.calculateErrorPos();
-		console.log(this.error_pos);
 	}
 	
 	calculateHCodes() {
@@ -28,7 +27,7 @@ class Hamming {
 	
 	calculateDClasses() {
 		for (var class_id = 0; class_id < this.h_codes_pos.length; class_id++) {
-			var cl = new DClass();
+			var cl = new DClass(class_id);
 			var bit_pos = class_id != 0 ? this.h_codes_pos[class_id] - 1 : 1;
 			var step = 1;
 			var flag = true;
@@ -73,6 +72,44 @@ class Hamming {
 			}
 		}
 		return str;
+	}
+	
+	toHtmlString() {
+		var st = "";
+		
+		for (var i = 0; i < this.d_classes.length; i++) {
+			st += "<p class='answer'>D" + i + " :";
+			st += "<p class='answer-item'>" + this.getDClassString(this.d_classes[i]);
+			st += "<p class='answer-item'>" + this.d_classes[i].toSumString();
+		}
+		
+		st += "<p><table><thead><tr><th>In the word:</th>";
+		
+		for (var i = 0; i < this.d_classes.length; i++) {
+			st += "<th>" + this.bits[this.h_codes_pos[i] - 1] + "</th>";
+		}
+		st += "</tr></thead><tbody><tr><th>Real bit:</th>";
+		
+		for (var i = 0; i < this.d_classes.length; i++) {
+			st += "<td>" + this.h_real[i] + "</td>";
+		}
+		
+		st += "</tr><tr><th>Sum:</th>";
+		
+		for (var i = 0; i < this.d_classes.length; i++) {
+			st += "<td>" + ((this.bits[this.h_codes_pos[i] - 1] + this.h_real[i]) % 2) + "</td>";
+		}
+		st += "</tr></tbody></table>";
+		
+		st += "<p class='answer'>Error position: ";
+		for(var i = 0; i < this.d_classes.length; i++) {
+			st += "2^" + i + " * " + ((this.bits[this.h_codes_pos[i] - 1] + this.h_real[i]) % 2);
+			if (i != this.d_classes.length - 1) {
+				st += " * ";
+			}
+		}
+		st += " = " + this.error_pos;
+		return st;
 	}
 	
 };

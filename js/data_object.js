@@ -1,9 +1,12 @@
 class DClass {
 	
 	bits;
+	sum;
+	step;
 	
-	constructor() {
+	constructor(step) {
 		this.bits = [];
+		this.step = step;
 	}
 	
 	addBit(bit){
@@ -15,7 +18,12 @@ class DClass {
 		for (var i = 0; i < this.bits.length; i++) {
 			sum += bit[this.bits[i]];
 		}
+		this.sum = sum;
 		return sum;
+	}
+	
+	toSumString() {
+		return "D" + this.step + " = " + this.sum + " % 2 = " + (this.sum % 2);
 	}
 	
 };
