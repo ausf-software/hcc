@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Hamming Code Calculator</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		
+		<link rel="icon" href="https://ausf-software.github.io/favicon.ico"> <!-- 32×32 -->
+		<link rel="icon" href="https://ausf-software.github.io/images/favicons/icon.svg" type="image/svg+xml">
+		<link rel="apple-touch-icon" href="https://ausf-software.github.io/images/favicons/apple.png">  <!-- 180×180 -->
+		<link rel="manifest" href="https://ausf-software.github.io/manifest.webmanifest">
+
+		<link rel="stylesheet" type="text/css" href="https://ausf-software.github.io/css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/hcc.css">
+		
+		<meta name="viewport" content="width=device-width">
+		<meta name = "description" content = "A finite state machine calculator from a given linear function of the form: f(x₁, x₂, ... , x₃₂) = α₁x₁ + α₂x₂ + ... + α₃₂x₃₂ + β" />
+		<meta name = "keywords" content = "finite state machine, finite state machine calculator, калькулятор, калькулятор конечных автоматов, конечные автоматы, конечный автомат" />
+		<meta name = "robots" content = "index,follow" />
+		<script type="text/javascript" src="https://ausf-software.github.io/js/script.js"></script>
+	</head>
+
+	<body>
+
+		<header id="header"></header>
+
+		<main>
+			<section>
+				<div class="calculator-settings">
+					<h1 class="calculator-text">Hamming Code Calculator</label>
+					<div id="head" class="head">
+						<form>
+							<label for="function-text">Code:</label>
+							<input type="text" name="function-input" id="function-input" placeholder="010101010101..." onkeydown="if(event.keyCode==13){return false;}">
+							<input type="button" name="function-submit" id="function-submit" value="Submit">
+						</form>
+					</div>
+				</div>
+			</section>
+			
+			<section class="answer_section">
+				<div class="container">
+				
+					<div class="answer_section_container">
+						<div class="answer_container" id="info">
+							<label id="info_selector" class="selector">&#9660; Readme</label>
+							<div id="info_div">
+							</div>
+						</div>
+					</div>
+				
+					<div class="answer_section_container">
+						<div class="answer_container" id="text_answer">
+							<label id="answer_text_selector" class="selector">&#9660; Text answer</label>
+							<div id="text_answer_div">
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</section>
+		</main>
+
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/data_object.js"></script>
+		<script type="text/javascript" src="js/hamming.js"></script>
+		<script type="text/javascript" src="js/hcc.js"></script>
+		
+
+		<footer id="footer"></footer>
+		
+	</body>
+</html>
