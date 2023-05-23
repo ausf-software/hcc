@@ -65,10 +65,10 @@ class Hamming {
 		var k = 0;
 		for (var i = 0; i <= ((k < d_class.bits.length) ? d_class.bits[k] : this.bits.length - 1); i++) {
 			if (k < d_class.bits.length && i == d_class.bits[k]) {
-				str += getSelectChar(this.bits[i]);
+				str += getSelectChar(this.bits[i]) + " ";
 				k++;
 			} else {
-				str += this.bits[i];
+				str += this.bits[i] + " ";
 			}
 		}
 		return str;

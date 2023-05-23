@@ -6,7 +6,7 @@ document.getElementById("function-submit").onclick = function(){
 	if (isValid(input)) {
 		document.getElementById("text_answer_div").innerHTML = "<br>";
 		
-		var ham = new Hamming(Array.from(input.value).map(Number));
+		var ham = new Hamming(Array.from(input.value.replace(/\s/g, '')).map(Number));
 		
 		var theDivText = document.getElementById("text_answer_div");
 		theDivText.innerHTML += ham.toHtmlString();
@@ -35,5 +35,5 @@ function setHide(id, name, text) {
 }
 
 function isValid(input) {
-	return input.value != "" && /^[0-1]+$/.test(input.value);
+	return input.value != "" && /^[0-1]+$/.test(input.value.replace(/\s/g, ''));
 }
